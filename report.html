@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Паспорт инструмента</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+</head>
+<body>
+
+<div class="a4-page" id="passport">
+
+  <!-- Шапка -->
+  <div class="passport-header">
+    <div class="header-main">
+      <h2 class="passport-title">ПАСПОРТ №<span id="passportNumber"></span> от <span id="passportDate"></span></h2>
+      <h3 class="passport-subtitle">НА РЕЖУЩИЙ ИНСТРУМЕНТ</h3>
+    </div>
+    <div class="header-right">
+      <p><strong>Наладчик:</strong></p>
+      <p id="issuedTo" class="field-value"></p>
+    </div>
+  </div>
+
+  <p class="warehouse"><strong>кладовая №</strong> <span id="warehouse"></span></p>
+
+  <!-- Данные инструмента -->
+  <div class="tool-section">
+    <p><strong>Наименование</strong> <span id="toolName" class="field-value"></span></p>
+    <p><strong>Шифр по каталогу</strong> <span id="catalogCode" class="field-value"></span> &nbsp;&nbsp; <strong>кол-во кромок:</strong> <span id="edges" class="field-value"></span></p>
+    <p><strong>Индивидуальный шифр</strong> <span id="individualCode" class="field-value"></span></p>
+    
+    <!-- Штрихкод -->
+    <div class="barcode-container">
+      <svg id="barcode"></svg>
+    </div>
+  </div>
+
+  <!-- Основная форма с выравниванием -->
+  <div class="form-container">
+    
+    <!-- Тип оборудования -->
+    <div class="form-row">
+      <strong>Тип оборудования:</strong>
+      <span class="input-box short"></span>
+      <span class="label-text">код СЧПУ</span>
+    </div>
+    
+    <div class="form-row checkbox-row">
+      <span class="checkbox-square"></span>
+      <span>Универсальный</span>
+    </div>
+
+    <!-- Шифр детали -->
+    <div class="form-row">
+      <strong>Шифр детали:</strong>
+      <span class="input-box medium"></span>
+    </div>
+
+    <!-- Серийность -->
+    <div class="form-row">
+      <strong>Серийность:</strong>
+      <span class="checkbox-item">
+        <span class="checkbox-square"></span>
+        <span>Временная</span>
+      </span>
+      <span class="checkbox-item">
+        <span class="checkbox-square"></span>
+        <span>Серийная</span>
+      </span>
+    </div>
+    
+    <!-- Номер операции -->
+    <div class="form-row">
+      <strong>Номер операции:</strong>
+      <span class="input-box medium"></span>
+    </div>
+
+    <!-- Количество деталей -->
+    <div class="form-row">
+      <strong>Количество обработанных<br>деталей:</strong>
+      <span class="input-box medium"></span>
+    </div>
+
+   <!-- Материал детали -->
+    <div class="form-row material-header">
+      <strong>Материал детали:</strong>
+      <span class="checkbox-square"></span>
+      <span>Медь(сплавы)</span>
+    </div>
+
+    <div class="checkbox-list-aligned">
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Чугун</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Нержавеющая сталь</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Магний(сплавы)</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Сталь&lt; HRC 40</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Титан(сплавы)</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Сталь&gt;= HRC 40</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Алюминий(сплавы)</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Не металл(пластмасс и прочее)</div>
+    </div>
+
+    <!-- Тмаш -->
+    <div class="form-row">
+      <strong>Тмаш(мин):</strong>
+      <span class="input-box medium"></span>
+    </div>
+
+   <!-- Соответствие ОК -->
+    <div class="form-row ok-row">
+      <strong>Инструмент соответствует ОК:</strong>
+      <span class="checkbox-square"></span>
+      <span>Да</span>
+      <span class="checkbox-square"></span>
+      <span>Нет</span>
+    </div>
+
+    <!-- Причина замены -->
+    <div class="form-row reason-header">
+      <strong>Если не соответствует ОК,<br>укажите причину замены:</strong>
+      <span class="checkbox-square"></span>
+      <span>Опытная</span>
+    </div>
+
+    <div class="checkbox-list-aligned">
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Нужный инструмент отсутствует</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Прочие причины</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Вместо нашего инструмента</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Разницы нет</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Данный инструмент лучше</div>
+    </div>
+
+    <!-- Состояние при сдаче -->
+    <div class="form-row state-header">
+      <strong>Состояние при сдаче:</strong>
+      <span class="checkbox-square"></span>
+      <span>Списание по износу</span>
+    </div>
+
+    <div class="checkbox-list-aligned">
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Списание по аварии</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> Годная</div>
+      <div class="checkbox-row-aligned"><span class="checkbox-square"></span> В переточку</div>
+    </div>
+
+    <!-- Номер блока-Т -->
+    <div class="form-row bottom">
+      <strong>Номер инструментального<br>блока- Т:</strong>
+      <span class="input-box medium"></span>
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module" src="./report.js"></script>
+</body>
+</html>

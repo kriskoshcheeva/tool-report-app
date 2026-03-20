@@ -1,0 +1,659 @@
+/* сброс стилей */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* стили для всего тела */
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 10pt;
+  line-height: 1.3;
+  background: #f0f2f5;
+  padding: 20px;
+}
+
+/* блок для контента */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* главный заголовок страницы */
+h1 {
+  text-align: center;
+  font-size: 18pt;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+/* заголовки второго уровня - разделы формы */
+h2 {
+  font-size: 14pt;
+  margin: 20px 0 15px 0;
+  color: #34495e;
+}
+
+/* горизонтальная линия - разделитель */
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+/* карточки инструментов */
+/* сетка для карточек */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* стиль карточки */
+.tool-card {
+  border: 2px solid #ddd;
+  padding: 12px;
+  border-radius: 6px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* эффект при наведении мыши */
+.tool-card:hover {
+  border-color: #3498db;
+  background: #e8f4fc;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+}
+
+/* стиль для выбранной карточки */
+.tool-card.selected {
+  border-color: #27ae60;
+  background: #d5f5e3;
+}
+
+/* заголовок внутри карточки */
+.tool-card h4 {
+  font-size: 11pt;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+/* параграфы внутри карточки */
+.tool-card p {
+  font-size: 9pt;
+  margin: 3px 0;
+  color: #555;
+}
+
+/* форма оформления выдачи */
+/* контейнер формы */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+}
+
+/* подписи полей */
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-weight: 500;
+}
+
+/* поля ввода и выпадающие списки */
+input, select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 11pt;
+  font-family: inherit;
+}
+
+/* когда пользователь печатает в поле */
+input:focus, select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* кнопка действия */
+.btn-primary {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 12pt;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* наведение на кнопку */
+.btn-primary:hover {
+  background: #2980b9;
+}
+
+/* подсказка под формой */
+.hint {
+  font-size: 10pt;
+  color: #666;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+/* паспорт формата а4 */
+/* контейнер страницы паспорта */
+.a4-page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 12mm 18mm;
+  margin: 0 auto;
+  background: white;
+  font-size: 10pt;
+  line-height: 1.3;
+}
+
+/* шапка паспорта */
+.passport-header {
+  position: relative;
+  margin-bottom: 10px;
+  min-height: 50px;
+}
+
+/* название паспорта */
+.header-main {
+  text-align: center;
+  width: 100%;
+}
+
+/* информация о наладчике */
+.header-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  min-width: 150px;
+  font-size: 9pt;
+}
+
+/* параграфы внутри правой части */
+.header-right p {
+  margin: 2px 0;
+}
+
+/* заголовок паспорта */
+.passport-title {
+  text-align: center;
+  font-size: 12pt;
+  font-weight: bold;
+  margin: 0 0 3px 0;
+  line-height: 1.2;
+}
+
+/* подзаголовок паспорта */
+.passport-subtitle {
+  text-align: center;
+  font-size: 11pt;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+/* информация о кладовой */
+.warehouse {
+  text-align: center;
+  margin: 5px 0 10px 0;
+  font-size: 9pt;
+}
+
+/* блок характеристик инструмента */
+.tool-section {
+  text-align: center;
+  margin: 8px 0;
+  font-size: 10pt;
+}
+
+/* параграфы внутри характеристик */
+.tool-section p {
+  margin: 2px 0;
+  line-height: 1.3;
+}
+
+/* жирный текст внутри характеристик (подписи полей) */
+.tool-section strong {
+  display: inline;
+  font-weight: bold;
+}
+
+/* значения полей */
+.tool-section .field-value {
+  display: inline;
+  font-weight: normal;
+}
+
+/* штрихкод */
+.barcode-container {
+  text-align: center;
+  margin: 8px 0;
+}
+
+#barcode {
+  width: 100%;
+  max-width: 280px;
+  height: 40px;
+}
+
+/* форма с выравниванием */
+.form-container {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* стиль строки */
+.form-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  font-size: 10pt;
+  line-height: 1.4;
+}
+
+/* подписи полей (элементы <strong>) */
+.form-row strong {
+  min-width: 220px;
+  text-align: right;
+  margin-right: 10px;
+  flex-shrink: 0;
+  font-weight: bold;
+}
+
+/* полноширокие подписи (без выравнивания) */
+.form-row.full-width strong {
+  text-align: left;
+  min-width: auto;
+  margin-right: 0;
+}
+
+/* строки с чекбоксами */
+.form-row.checkbox-row {
+  margin-left: 230px;
+}
+
+/* нижние строки формы с увеличенным отступом */
+.form-row.bottom {
+  margin-top: 15px;
+}
+
+/* материал детали - первая строка с чекбоксом */
+.form-row.material-header {
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.form-row.material-header strong {
+  min-width: 220px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.form-row.material-header .checkbox-square {
+  margin: 0 5px;
+  flex-shrink: 0;
+}
+
+/* cоответствие ОК - чекбоксы на одной строке */
+.form-row.ok-row {
+  align-items: center;
+}
+
+.form-row.ok-row .checkbox-square {
+  margin: 0 5px;
+}
+
+.form-row.ok-row span:not(.checkbox-square) {
+  margin-right: 15px;
+}
+
+/* первый чекбокс с текстом - вместе опускаем */
+.form-row.reason-header {
+  align-items: flex-start;
+  margin-bottom: 4px;
+   padding-top: 20px;
+}
+
+.form-row.reason-header strong {
+  min-width: 220px;
+  text-align: right;
+  margin-right: 10px;
+  line-height: 1.4;
+}
+
+.form-row.reason-header .first-checkbox-row {
+  margin-top: 0px;  /* отступ сверху для всей строки */
+}
+
+.form-row.reason-header .first-checkbox-row .checkbox-square {
+  margin: 0 5px;
+}
+
+.form-row.reason-header .first-checkbox-row span:not(.checkbox-square) {
+  margin-right: 5px;
+}
+
+/* состояние при сдаче - первый чекбокс на одной строке */
+.form-row.state-header {
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.form-row.state-header strong {
+  min-width: 220px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.form-row.state-header .checkbox-square {
+  margin: 0 5px;
+  flex-shrink: 0;
+}
+
+/* квадратные чекбоксы */
+.checkbox-square {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #000;
+  margin: 0 5px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* прямоугольные поля для ввода */
+.input-box {
+  display: inline-block;
+  border: 1px solid #000;
+  height: 16px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  margin: 0 5px;
+}
+
+.input-box.short {
+  width: 100px;
+}
+
+.input-box.medium {
+  width: 150px;
+}
+
+.input-box.long {
+  width: 250px;
+}
+
+.label-text {
+  margin-left: 10px;
+}
+
+/* списки чекбоксов - выровненные по одной линии */
+.checkbox-list-aligned {
+  margin: 0 0 15px 0;
+  margin-left: 230px;
+}
+
+/* списки чекбоксов справа от label */
+.checkbox-list-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  flex: 1;
+}
+
+/* отдельная строка с чекбоксом */
+.checkbox-row-aligned {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  font-size: 10pt;
+  line-height: 1.3;
+}
+
+.checkbox-row-aligned .checkbox-square {
+  margin-right: 8px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* горизонтальная прокрутка */
+.tool-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px;
+}
+
+.tool-card {
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+/* скрыть вертикальную прокрутку */
+.tool-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tool-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.tool-grid::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+/* печать */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  
+  /* сброс стилей body для печати */
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+  
+  .a4-page {
+    width: 100%;
+    min-height: 297mm;
+    padding: 12mm 18mm;
+    margin: 0;
+    box-shadow: none;
+  }
+  
+  /* скрытие всего кроме паспорта */
+  body > *:not(.a4-page) {
+    display: none !important;
+  }
+  
+  /* обеспечение печати рамок чекбоксов и полей */
+  .checkbox-square,
+  .input-box {
+    border: 1px solid #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  #barcode {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* страница истории */
+/* панель кнопок управления */
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* второстепенная кнопка (серая) */
+.btn-secondary {
+  display: inline-block;
+  background: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #5a6268;
+}
+
+/* удаление истории */
+.btn-danger {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+/* маленькая кнопка в таблице */
+.btn-small {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 9pt;
+  transition: background 0.2s;
+}
+
+.btn-small:hover {
+  background: #2980b9;
+}
+
+/* поиск */
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 11pt;
+  font-family: inherit;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* таблица */
+.table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* базовая таблица */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10pt;
+}
+
+/* заголовок таблицы */
+thead {
+  background: #34495e;
+  color: white;
+}
+
+/* ячейки заголовка и данных */
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* заголовки столбцов */
+th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 9pt;
+  letter-spacing: 0.5px;
+}
+
+tbody tr:hover {
+  background: #f8f9fa;
+}
+
+/* убираем границу у последней строки */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* стиль для кода/шифров в таблице */
+code {
+  background: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+  font-size: 9pt;
+}
+
+/* сообщение "Нет данных" */
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 12pt;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* адаптивность */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .controls {
+    flex-direction: column;
+  }
+  
+  th, td {
+    padding: 8px 10px;
+    font-size: 9pt;
+  }
+}

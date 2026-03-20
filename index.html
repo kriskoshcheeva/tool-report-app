@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выдача режущего инструмента</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Выдача режущего инструмента</h1>
+
+  <div style="text-align: right; margin-bottom: 20px;">
+  <a href="history.html" style="color: #3498db; text-decoration: none; font-weight: 500;">
+    История выдачи
+  </a>
+  </div>
+
+  <!-- Доступные инструменты -->
+  <section>
+    <h2>Доступные инструменты</h2>
+    <div id="toolCards" class="tool-grid"></div>
+  </section>
+
+  <hr>
+
+  <!-- Форма оформления -->
+  <section>
+    <h2>Оформление выдачи</h2>
+    <form id="issueForm">
+      <label>
+        Выберите инструмент:
+        <select id="toolSelect" required>
+          <option value="">-- Выберите из списка --</option>
+        </select>
+      </label>
+
+      <label>
+        ФИО наладчика *:
+        <input type="text" id="issuedTo" required placeholder="Иванов И.И.">
+      </label>
+
+      <label>
+        Кладовая №:
+        <input type="text" id="warehouse" value="42/71">
+      </label>
+
+      <button type="submit" class="btn-primary">
+        Сформировать паспорт
+      </button>
+    </form>
+
+    <p class="hint">* Остальные поля заполняются вручную в распечатанном паспорте</p>
+  </section>
+</div>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>

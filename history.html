@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>История выдачи инструментов</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>История выдачи инструментов</h1>
+  
+  <!-- Кнопки управления -->
+  <div class="controls">
+    <a href="index.html" class="btn-secondary">← На главную</a>
+    <button onclick="clearHistory()" class="btn-danger">Очистить историю</button>
+  </div>
+
+  <!-- Поиск -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Поиск по номеру, ФИО, инструменту..." oninput="filterHistory()">
+  </div>
+
+  <!-- Таблица истории -->
+  <div class="table-container">
+    <table id="historyTable">
+      <thead>
+        <tr>
+          <th>№ Паспорта</th>
+          <th>Дата выдачи</th>
+          <th>Инструмент</th>
+          <th>Шифр</th>
+          <th>Наладчик</th>
+          <th>Кладовая</th>
+          <th>Действия</th>
+        </tr>
+      </thead>
+      <tbody id="historyTableBody">
+        <!-- Данные загружаются из JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <div id="noData" class="no-data" style="display: none;">
+    История пуста.
+  </div>
+</div>
+
+<script type="module" src="./history.js"></script>
+</body>
+</html>
