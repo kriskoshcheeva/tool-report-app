@@ -1,0 +1,16 @@
+{
+  "name": "tool-report-app",
+  "version": "1.0.0",
+  "description": "Система выдачи режущего инструмента",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["tool", "passport", "barcode", "inventory"],
+  "author": "Кристина Кощеева",
+  "license": "ISC",
+  "dependencies": {
+    "jsbarcode": "^3.11.5"
+  }
+}
